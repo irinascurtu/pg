@@ -49,6 +49,8 @@ namespace Classes
 
             // var dogOwner = Dog.Owner;
 
+            Person myPerson= new Person("Gigi","Dev", 1989, Gender.Male);
+            var age = myPerson.Age;
         }
     }
 }
