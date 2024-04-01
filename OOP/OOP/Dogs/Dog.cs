@@ -21,10 +21,16 @@ namespace OOP.Dogs
             Console.WriteLine("Dog class");
         }
 
-        protected void Bark()
+        //public virtual void Bark()
+        //{
+        //    Console.WriteLine("Dog - Bark");
+        //}
+
+        public void Bark()
         {
             Console.WriteLine("Dog - Bark");
         }
+
 
         private void Snorr()
         {

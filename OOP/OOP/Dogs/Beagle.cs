@@ -21,10 +21,16 @@ namespace OOP.Dogs
             Console.WriteLine($"I'm doing {trick}");
         }
 
-        public void Bark()
+        //public override void Bark()
+        //{
+        //    Console.WriteLine("Bark - Beagle class");
+        //    // base.Bark();
+        //}
+
+        public new void Bark()
         {
             Console.WriteLine("Bark - Beagle class");
-           // base.Bark();
+            // base.Bark();
         }
     }
 }

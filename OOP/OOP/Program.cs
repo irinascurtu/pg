@@ -14,17 +14,17 @@ namespace OOP
             beagle.Eat();
 
 
-            Bird bird = new Bird();
+            //Bird bird = new Bird();
             
-            Plane plane = new Plane();
+            //Plane plane = new Plane();
 
-            IFlyable flyableObject = new PaperAiplane();
-            flyableObject.Fly();
+            //IFlyable flyableObject = new PaperAiplane();
+            //flyableObject.Fly();
 
-            flyableObject = bird;
-            flyableObject.Fly();
+            //flyableObject = bird;
+            //flyableObject.Fly();
 
-            flyableObject = plane;
+            //flyableObject = plane;
 
 
         }
