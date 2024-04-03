@@ -5,7 +5,11 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP", "OOP\OOP.csproj", "{499674C1-1AB4-4D89-A250-2A42BFA6E5A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encapsulation", "Encapsulation\Encapsulation.csproj", "{CC3CE5CA-ADAA-46B2-916F-EDE9AE4A305C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Encapsulation", "Encapsulation\Encapsulation.csproj", "{CC3CE5CA-ADAA-46B2-916F-EDE9AE4A305C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstractEx", "AbstractEx\AbstractEx.csproj", "{C526BDC0-C347-47C8-9A09-0E5E88671443}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabbit", "Rabbit\Rabbit.csproj", "{50001CE4-2E9F-484D-92FB-6FEE1CF4CDB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{CC3CE5CA-ADAA-46B2-916F-EDE9AE4A305C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC3CE5CA-ADAA-46B2-916F-EDE9AE4A305C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC3CE5CA-ADAA-46B2-916F-EDE9AE4A305C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C526BDC0-C347-47C8-9A09-0E5E88671443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C526BDC0-C347-47C8-9A09-0E5E88671443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C526BDC0-C347-47C8-9A09-0E5E88671443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C526BDC0-C347-47C8-9A09-0E5E88671443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50001CE4-2E9F-484D-92FB-6FEE1CF4CDB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50001CE4-2E9F-484D-92FB-6FEE1CF4CDB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50001CE4-2E9F-484D-92FB-6FEE1CF4CDB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50001CE4-2E9F-484D-92FB-6FEE1CF4CDB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
