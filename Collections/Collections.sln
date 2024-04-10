@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lists", "Lists\Lists.csproj", "{F2748C35-39D6-4618-BB33-9B4E0322B630}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack", "Stack\Stack.csproj", "{B3A52054-CA15-48B7-908B-D13904914D2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictionary", "Dictionary\Dictionary.csproj", "{30E16490-53C6-483A-9A3B-60B48CF9486E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2748C35-39D6-4618-BB33-9B4E0322B630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2748C35-39D6-4618-BB33-9B4E0322B630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2748C35-39D6-4618-BB33-9B4E0322B630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2748C35-39D6-4618-BB33-9B4E0322B630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3A52054-CA15-48B7-908B-D13904914D2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3A52054-CA15-48B7-908B-D13904914D2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3A52054-CA15-48B7-908B-D13904914D2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3A52054-CA15-48B7-908B-D13904914D2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30E16490-53C6-483A-9A3B-60B48CF9486E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30E16490-53C6-483A-9A3B-60B48CF9486E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30E16490-53C6-483A-9A3B-60B48CF9486E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30E16490-53C6-483A-9A3B-60B48CF9486E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3B02A7E-B611-44D9-8291-EAFDAC46FA04}
+	EndGlobalSection
+EndGlobal
