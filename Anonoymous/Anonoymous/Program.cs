@@ -80,7 +80,9 @@ namespace Anonoymous
             {
                 Age = x.Age / 5,
                 Height = x.ShoeSize + 5
-            });
+            }).ToList();
+
+            var ss = ageProfession[0].Height;
 
 
             var secondListOfCars = cars;
