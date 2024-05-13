@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FirstAppi.Controllers
 {
-    [Route("api/[controller]")] //localhost:{port}/api/student
+    [Route("api/[controller]")] //localhost:{port}/api/students
     [ApiController]
     public class StudentsController : ControllerBase
     {
-        private List<Student> students = new List<Student>();
+        private static List<Student> students = new List<Student>();
 
         public StudentsController()
         {
@@ -26,7 +26,7 @@ namespace FirstAppi.Controllers
         [HttpGet]
         public IActionResult GetAllStudents()//GetAll
         {
-            return Ok(this.students);
+            return Ok(students);
         }
 
         [HttpGet("{id}")]
@@ -41,5 +41,66 @@ namespace FirstAppi.Controllers
             return Ok(student);
         }
 
+        //CREATE
+        [HttpPost]
+        public IActionResult Create([FromBody] Student student, [FromHeader] string? culture, [FromQuery] string? gender)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            //simulate the db saving
+
+            student.Id = 100;
+            students.Add(student);
+
+
+            return CreatedAtAction(nameof(GetById), new { id = student.Id }, student);
+        }
+
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateStudent(int id, Student model)
+        {
+            if (id != model.Id)
+            {
+                return BadRequest();
+            }
+
+            var studentFromDb = students.FirstOrDefault(x => x.Id == id);
+            if (studentFromDb == null)
+            {
+                return NotFound();
+            }
+            //update in the database
+
+            return Ok(studentFromDb);
+            // return Ok();
+        }
+
+
+        [HttpHead("{id}")]
+        public IActionResult CheckIfExists(int id)
+        {
+            if (students.Any(x => x.Id == id))
+            {
+                return Ok();
+            }
+            return NotFound();
+        }
+
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var studentWithId = students.FirstOrDefault(x => x.Id == id);
+            if (studentWithId == null)
+            {
+                return NotFound();
+            }
+
+            students.Remove(studentWithId);
+            return NoContent();
+        }
     }
 }
