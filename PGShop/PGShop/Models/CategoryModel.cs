@@ -14,5 +14,7 @@ namespace PGShop.Models
 
         [StringLength(200)]
         public string Description { get; set; } = null!;
+
+        public string CatDescription { get { return Categoryname + Description; } }
     }
 }
