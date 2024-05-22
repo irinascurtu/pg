@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PGShop.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,6 @@ namespace PGShop.Services
     public interface ICategoryService
     {
         bool CheckIfExists(int id);
-
+        Category GetCategory(int id);
     }
 }

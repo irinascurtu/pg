@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PGShop.Domain\PGShop.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,4 @@
-﻿using PGShop.Entities;
+﻿using PGShop.Domain.Entities;
 using PGShop.Models;
 
 namespace PGShop.Data

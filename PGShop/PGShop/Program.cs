@@ -1,6 +1,6 @@
 
 using Microsoft.EntityFrameworkCore;
-using PGShop.Entities;
+using PGShop.Domain.Entities;
 
 namespace PGShop
 {

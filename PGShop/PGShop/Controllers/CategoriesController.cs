@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PGShop.Data;
-using PGShop.Entities;
+using PGShop.Domain.Entities;
 using PGShop.Models;
 
 namespace PGShop.Controllers
@@ -22,7 +23,7 @@ namespace PGShop.Controllers
         public ActionResult<List<Category>> GetCategories()
         {
             var categories = context.Categories.ToList();
-
+            //context.Categories.FromSql<Category>($"select * from Categories");
             return categories;
         }
 
