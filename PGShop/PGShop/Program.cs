@@ -1,6 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
+using PGShop.Data;
 using PGShop.Domain.Entities;
+using PGShop.Services;
 
 namespace PGShop
 {
@@ -17,6 +19,8 @@ namespace PGShop
                 options => options.UseSqlServer(builder.Configuration.GetConnectionString("StoreDb"))
                 );
 
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

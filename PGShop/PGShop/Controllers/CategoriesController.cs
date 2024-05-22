@@ -17,6 +17,7 @@ namespace PGShop.Controllers
         public CategoriesController(ICategoryService categoryService)
         {
             this.categoryService = categoryService;
+            //this.categoryService = new CategoryService(new CategoryRepository(new StoreContext()));
         }
 
 
@@ -63,7 +64,7 @@ namespace PGShop.Controllers
             //var existing = context.Categories.Where(x => x.Categoryname.Equals(model.Categoryname))
             //                                 .Any();
 
-            var existing=  categoryService.CheckIfExists
+            var existing = categoryService.CheckIfExists(model.Categoryname);
             if (existing)
             {
                 ModelState.AddModelError("Categoryname", "There is already an item with same category name.");
@@ -78,8 +79,10 @@ namespace PGShop.Controllers
             //use a library like Automapper
 
             var newCategory = model.ToCategory(); //Sweets
-            context.Categories.Add(newCategory);
-            context.SaveChanges();
+            //context.Categories.Add(newCategory);
+            //context.SaveChanges();
+
+            categoryService.AddNewCategory(newCategory);
 
 
             return CreatedAtAction(nameof(GetCategory), new { id = newCategory.Categoryid }, null);
@@ -93,7 +96,8 @@ namespace PGShop.Controllers
                 return BadRequest();
             }
 
-            var itemFromDb = context.Categories.Find(id);
+            // var itemFromDb = context.Categories.Find(id);
+            var itemFromDb = categoryService.GetCategory(id);
             if (itemFromDb == null)
             {
                 return NotFound();
@@ -104,9 +108,10 @@ namespace PGShop.Controllers
             itemFromDb.Description = model.Description;
             itemFromDb.Categoryname = model.Categoryname;
 
-            var updatedEntity = context.Categories.Update(itemFromDb).Entity;
+            //var updatedEntity = context.Categories.Update(itemFromDb).Entity;
+            //context.SaveChanges();
+            var updatedEntity = categoryService.Update(itemFromDb);
 
-            context.SaveChanges();
             return Ok(model);
 
         }
@@ -115,14 +120,16 @@ namespace PGShop.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            var existingItem = context.Categories.Find(id);
-            if (existingItem == null)
-            {
-                return NotFound();
-            }
+            //var existingItem = context.Categories.Find(id);
 
-            var deletedItem = context.Categories.Remove(existingItem);
-            context.SaveChanges();
+            //if (existingItem == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //var deletedItem = context.Categories.Remove(existingItem);
+            //context.SaveChanges();
+            categoryService.DeleteCategory(id);
 
             return NoContent();//204
         }
@@ -130,8 +137,10 @@ namespace PGShop.Controllers
         [HttpHead("{id}")]
         public ActionResult CheckIfExists(int id)
         {
-            var existingCategory = context.Categories.Find(id);
-            if (existingCategory == null)
+            //var existingCategory = context.Categories.Find(id);
+
+            var existingCategory = categoryService.CheckIfExists(id);
+            if (!existingCategory)
             {
                 return NotFound();
             }

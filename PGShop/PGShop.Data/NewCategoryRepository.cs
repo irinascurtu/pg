@@ -24,6 +24,11 @@ namespace PGShop.Data
             throw new NotImplementedException();
         }
 
+        public bool Exists(string categoryName)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Category> GetAll()
         {
             throw new NotImplementedException();
