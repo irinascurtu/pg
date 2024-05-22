@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using PGShop.Data;
 using PGShop.Domain.Entities;
 using PGShop.Models;
+using PGShop.Services;
 
 namespace PGShop.Controllers
 {
@@ -11,18 +12,20 @@ namespace PGShop.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        private readonly StoreContext context;
+        private readonly ICategoryService categoryService;
 
-        public CategoriesController(StoreContext context)
+        public CategoriesController(ICategoryService categoryService)
         {
-            this.context = context;
+            this.categoryService = categoryService;
         }
 
 
         [HttpGet]
         public ActionResult<List<Category>> GetCategories()
         {
-            var categories = context.Categories.ToList();
+            // var categories = context.Categories.ToList();
+            var categories = categoryService.GetAllCategories().ToList();//
+
             //context.Categories.FromSql<Category>($"select * from Categories");
             return categories;
         }
@@ -30,7 +33,8 @@ namespace PGShop.Controllers
         [HttpGet("{id}")]
         public ActionResult<CategoryModel> GetCategory(int id)
         {
-            var category = context.Categories.FirstOrDefault(x => x.Categoryid == id);
+            //var category = context.Categories.FirstOrDefault(x => x.Categoryid == id);
+            var category = categoryService.GetCategory(id);
             if (category == null)
             {
                 return NotFound();
@@ -56,9 +60,10 @@ namespace PGShop.Controllers
 
             // we don't have a similar item in the database ->Business rule
 
-            var existing = context.Categories.Where(x => x.Categoryname.Equals(model.Categoryname))
-                                             .Any();
+            //var existing = context.Categories.Where(x => x.Categoryname.Equals(model.Categoryname))
+            //                                 .Any();
 
+            var existing=  categoryService.CheckIfExists
             if (existing)
             {
                 ModelState.AddModelError("Categoryname", "There is already an item with same category name.");

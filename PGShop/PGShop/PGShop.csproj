@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PGShop.Domain\PGShop.Domain.csproj" />
+    <ProjectReference Include="..\PGShop.Services\PGShop.Services.csproj" />
   </ItemGroup>
 
 </Project>

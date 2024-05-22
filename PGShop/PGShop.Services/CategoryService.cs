@@ -24,6 +24,11 @@ namespace PGShop.Services
             return categoryRepository.Exists(id);
         }
 
+        public bool CheckIfExists(string categoryName)
+        {
+            return categoryRepository.Exists(categoryName);
+        }
+
         public Category GetCategory(int id)
         {
             return categoryRepository.GetById(id);
@@ -32,6 +37,28 @@ namespace PGShop.Services
         public IEnumerable<Category> GetAllCategories()
         {
             return categoryRepository.GetAll();
+        }
+
+        public Category AddNewCategory(Category category)
+        {
+            return categoryRepository.AddNewCategory(category);
+        }
+
+        public Category Update(Category category)
+        {
+            return categoryRepository.UpdateCategory(category);
+        }
+
+        public bool DeleteCategory(int id)
+        {
+            var itemToDelete = categoryRepository.GetById(id);
+            if (itemToDelete == null)
+            {
+                throw new Exception("Item was not found");
+            }
+            var item = categoryRepository.DeleteCategory(itemToDelete);
+
+            return item > 0;
         }
     }
 }
