@@ -76,10 +76,11 @@ namespace PGShop.Controllers
             }
 
             //Category(comes from the db .Entities Folder) -> CategoryModel(the actual model)
-            var model = new CategoryModel();
-            model.Description = category.Description;
-            model.Categoryid = category.Categoryid;
-            model.Categoryname = category.Categoryname;
+            //var model = new CategoryModel();
+            //model.Description = category.Description;
+            //model.Categoryid = category.Categoryid;
+            //model.Categoryname = category.Categoryname;
+            var model = mapper.Map<CategoryModel>(category);
 
             return Ok(model);
         }
@@ -95,9 +96,6 @@ namespace PGShop.Controllers
 
             // we don't have a similar item in the database ->Business rule
 
-            //var existing = context.Categories.Where(x => x.Categoryname.Equals(model.Categoryname))
-            //                                 .Any();
-
             var existing = categoryService.CheckIfExists(model.Categoryname);
             if (existing)
             {
@@ -105,17 +103,7 @@ namespace PGShop.Controllers
                 return Conflict(ModelState);
             }
 
-            //CategoryModel -> Category
-            //Category newCategory = new Category();
-            //newCategory.Categoryname = model.Categoryname;
-            //newCategory.Description = model.Description;
-            //Use an Extension Method 
-            //use a library like Automapper
-
-            var newCategory = model.ToCategory(); //Sweets
-            //context.Categories.Add(newCategory);
-            //context.SaveChanges();
-
+            var newCategory = mapper.Map<Category>(model);
             categoryService.AddNewCategory(newCategory);
 
 
@@ -136,8 +124,6 @@ namespace PGShop.Controllers
             {
                 return NotFound();
             }
-
-
 
             itemFromDb.Description = model.Description;
             itemFromDb.Categoryname = model.Categoryname;

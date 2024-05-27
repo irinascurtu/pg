@@ -9,6 +9,7 @@ namespace PGShop.Mappers
         public CategoryProfile()
         {
             CreateMap<Category, CategoryModel>();
+            CreateMap<CategoryModel, Category>();
         }
     }
 }
