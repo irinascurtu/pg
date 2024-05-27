@@ -13,7 +13,7 @@ namespace PGShop.Services
         bool CheckIfExists(int id);
         bool CheckIfExists(string categoryName);
         bool DeleteCategory(int id);
-        IEnumerable<Category> GetAllCategories();
+        IQueryable<Category> GetAllCategories();
         Category GetCategory(int id);
         Category Update(Category category);
     }

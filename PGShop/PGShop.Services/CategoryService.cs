@@ -34,7 +34,7 @@ namespace PGShop.Services
             return categoryRepository.GetById(id);
         }
 
-        public IEnumerable<Category> GetAllCategories()
+        public IQueryable<Category> GetAllCategories()
         {
             return categoryRepository.GetAll();
         }

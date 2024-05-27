@@ -15,5 +15,14 @@ namespace PGShop.Data
             return newCategory;
         }
 
+
+        //public static CategoryModel ToCategory(this Category model)
+        //{
+        //    CategoryModel newCategory = new CategoryModel();
+        //    newCategory.Categoryname = model.Categoryname;
+        //    newCategory.Description = model.Description;
+
+        //    return newCategory;
+        //}
     }
 }

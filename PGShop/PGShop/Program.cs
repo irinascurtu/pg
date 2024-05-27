@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using PGShop.Data;
 using PGShop.Domain.Entities;
+using PGShop.Mappers;
 using PGShop.Services;
 
 namespace PGShop
@@ -25,6 +26,10 @@ namespace PGShop
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            //Automapper configuration
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            builder.Services.AddAutoMapper(typeof(CategoryProfile));
 
             var app = builder.Build();
 

@@ -18,7 +18,7 @@ namespace PGShop.Data
 
         ///CRUD
 
-        public IEnumerable<Category> GetAll()
+        public IQueryable<Category> GetAll()
         {
             return this.context.Categories;
         }

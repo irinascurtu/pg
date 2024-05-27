@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PGShop.Data;
@@ -13,22 +14,55 @@ namespace PGShop.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly ICategoryService categoryService;
+        private readonly IMapper mapper;
 
-        public CategoriesController(ICategoryService categoryService)
+        public CategoriesController(ICategoryService categoryService, IMapper mapper)
         {
             this.categoryService = categoryService;
+            this.mapper = mapper;
             //this.categoryService = new CategoryService(new CategoryRepository(new St))
         }
 
 
         [HttpGet]
-        public ActionResult<List<Category>> GetCategories()
+        public ActionResult<List<CategoryModel>> GetCategories([FromQuery] CategoryFilter model)
         {
             // var categories = context.Categories.ToList();
-            var categories = categoryService.GetAllCategories().ToList();//
+            //  var categories = categoryService.GetAllCategories().ToList();
+            var categories = categoryService.GetAllCategories();
+
+            if (model != null)
+            {
+                if (!string.IsNullOrEmpty(model.Name))
+                {
+                    categories = categories.Where(x => x.Categoryname.StartsWith(model.Name));
+                }
+
+                if (!string.IsNullOrEmpty(model.Description))
+                {
+                    categories = categories.Where(x => x.Description.ToLower().Contains(model.Description.ToLower()));
+                }
+
+            }
+
+
+            //IEnumerable vs IQueryable
+            List<CategoryModel> result = mapper.Map<List<CategoryModel>>(categories);
+
+
+
+            //List<CategoryModel> result = new List<CategoryModel>();
+            //foreach (var category in categories)
+            //{
+            //    var item = new CategoryModel();
+            //    item.Description = category.Description;
+            //    item.Categoryname = category.Categoryname;
+            //    item.Categoryid = category.Categoryid;
+            //    result.Add(item);
+            //}
 
             //context.Categories.FromSql<Category>($"select * from Categories");
-            return categories;
+            return result;
         }
 
         [HttpGet("{id}")]
