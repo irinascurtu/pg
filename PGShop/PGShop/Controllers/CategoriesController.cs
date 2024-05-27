@@ -17,7 +17,7 @@ namespace PGShop.Controllers
         public CategoriesController(ICategoryService categoryService)
         {
             this.categoryService = categoryService;
-            //this.categoryService = new CategoryService(new CategoryRepository(new StoreContext()));
+            //this.categoryService = new CategoryService(new CategoryRepository(new St))
         }
 
 
