@@ -9,6 +9,14 @@ namespace PGShop.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
+        //1. create a service + interface
+        //2. create a repository+ Interface
+        //3. register them
+        //4. use them inside the constroller
+        //5. create a mapping for the model
+        //6. implement the two actions inside this controller
+
+
         private readonly IMapper mapper;
 
         public OrdersController(IMapper mapper)
