@@ -41,6 +41,7 @@ namespace PGShop.Data
                     inner join Suppliers s on  s.supplierid = p.supplierid
                     where p.categoryid=1";
 
+            var products = context.MyProducts.FromSqlRaw(query);
             return context.Products.FromSqlRaw<Product>(query);
         }
     }
