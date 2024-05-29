@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace PGShop.Data
 {
-    public interface IProductRepository
+    public interface IOrdersRepository
     {
-        IQueryable<Product> GetAll();
-        Product GetById(int id);
-        IQueryable<Product> GetProductsRaw(int categoryId);
+        IQueryable<Order> GetAll();
     }
 }

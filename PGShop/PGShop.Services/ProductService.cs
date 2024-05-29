@@ -12,19 +12,31 @@ namespace PGShop.Services
     {
         private readonly IProductRepository productRepository;
 
-        public ProductService( IProductRepository productRepository)
+        public ProductService(IProductRepository productRepository)
         {
             this.productRepository = productRepository;
         }
 
-        public IQueryable<Product> GetProducts()
-        {
-            return productRepository.GetAll();
-        }
 
         public Product GetProduct(int id)
         {
             return productRepository.GetById(id);
         }
+
+        public IQueryable<Product> GetProducts()
+        {
+            var products = productRepository.GetAll();
+            return products;
+        }
+
+        public IQueryable<Product> GetProducts(int categoryId)
+        {
+            return productRepository.GetProductsRaw(categoryId);
+            //var products = productRepository.GetAll();
+            //  return GetProducts().Where(x => x.Categoryid == categoryId);
+        }
+
+
+
     }
 }

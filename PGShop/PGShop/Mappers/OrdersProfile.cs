@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using PGShop.Domain.Entities;
+using PGShop.Models;
 
 namespace PGShop.Mappers
 {
@@ -7,6 +9,7 @@ namespace PGShop.Mappers
         public OrdersProfile()
         {
             //createmaps
+            CreateMap<Order, OrderModel>();
         }
     }
 }

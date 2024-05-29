@@ -6,7 +6,8 @@ using PGShop.Services;
 
 namespace PGShop.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
+    [Route("api/categories/{categoryId}/products")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -19,10 +20,26 @@ namespace PGShop.Controllers
             this.productService = productService;
         }
 
-        [HttpGet]
-        public List<ProductModel> GetAll() {
 
-            return new List<ProductModel>();
+        //categories/{categoryid}/products
+        [HttpGet]
+        public IActionResult GetAll(int categoryId)
+        {
+            var products = productService.GetProducts(categoryId);
+            var listof= products.ToList();
+
+            var productModels = mapper.Map<List<ProductModel>>(products);
+
+            // include suppliers
+            return Ok(productModels);
+        }
+
+        //categories/{categoryid}/products/{productId}
+        [HttpGet("{id}")]
+        public ProductModel GetById(int id)
+        {
+
+            return new ProductModel();
         }
     }
 }

@@ -9,6 +9,8 @@ public partial class StoreContext : DbContext
     public StoreContext()
     {
     }
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    => optionsBuilder.LogTo(Console.WriteLine);
 
     public StoreContext(DbContextOptions<StoreContext> options)
         : base(options)

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PGShop.Models;
+using PGShop.Services;
 
 namespace PGShop.Controllers
 {
@@ -18,21 +19,27 @@ namespace PGShop.Controllers
 
 
         private readonly IMapper mapper;
+        private readonly IOrdersService ordersService;
 
-        public OrdersController(IMapper mapper)
+        public OrdersController(IMapper mapper, IOrdersService ordersService)
         {
             this.mapper = mapper;
+            this.ordersService = ordersService;
         }
 
         [HttpGet]
         public ActionResult<List<OrderModel>> GetAll()
         {
-            return new List<OrderModel>();
+            var orders = ordersService.GetAll();
+
+            var models = mapper.Map<List<OrderModel>>(orders);
+
+            return Ok(models);
         }
 
 
-        [HttpGet]
-        public ActionResult<OrderModel> GetById()
+        [HttpGet("{id}")]
+        public ActionResult<OrderModel> GetById(int id)
         {
             return new OrderModel();
         }

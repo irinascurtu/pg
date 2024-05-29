@@ -11,5 +11,6 @@ namespace PGShop.Services
     {
         Product GetProduct(int id);
         IQueryable<Product> GetProducts();
+        IQueryable<Product> GetProducts(int categoryId);
     }
 }
