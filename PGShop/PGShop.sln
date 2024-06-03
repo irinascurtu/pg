@@ -5,11 +5,13 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PGShop", "PGShop\PGShop.csproj", "{BBF6E8D7-AA74-4D93-AD38-25B204C0699C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGShop.Domain", "PGShop.Domain\PGShop.Domain.csproj", "{39048979-A241-4BB5-AB69-833F89072481}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PGShop.Domain", "PGShop.Domain\PGShop.Domain.csproj", "{39048979-A241-4BB5-AB69-833F89072481}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGShop.Data", "PGShop.Data\PGShop.Data.csproj", "{2B5B0DCB-36DD-4BB6-883E-9C4B9ADDDD57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PGShop.Data", "PGShop.Data\PGShop.Data.csproj", "{2B5B0DCB-36DD-4BB6-883E-9C4B9ADDDD57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGShop.Services", "PGShop.Services\PGShop.Services.csproj", "{2306CB6B-6EAD-4155-A75A-669B77E976D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PGShop.Services", "PGShop.Services\PGShop.Services.csproj", "{2306CB6B-6EAD-4155-A75A-669B77E976D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PGShop.Tests.Unit", "PGShop.Tests.Unit\PGShop.Tests.Unit.csproj", "{8301D104-22B1-4959-8610-AB013B5DEC81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{2306CB6B-6EAD-4155-A75A-669B77E976D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2306CB6B-6EAD-4155-A75A-669B77E976D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2306CB6B-6EAD-4155-A75A-669B77E976D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8301D104-22B1-4959-8610-AB013B5DEC81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8301D104-22B1-4959-8610-AB013B5DEC81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8301D104-22B1-4959-8610-AB013B5DEC81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8301D104-22B1-4959-8610-AB013B5DEC81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
