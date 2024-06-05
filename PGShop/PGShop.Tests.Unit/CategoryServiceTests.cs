@@ -55,16 +55,29 @@ namespace PGShop.Tests.Unit
         public void CheckIfCategoryExists_ById()
         {
             //Arrange
-
+            // return categoryRepository.Exists(id);
+            categoryRepository.Exists(2).Returns(true);
             //Act
+
+            var expectedResult = subjectUnderTest.CheckIfExists(2);
+
             //Assert
+            expectedResult.Should().BeTrue();
+
+
         }
 
         [Fact]
         public void CheckIfCategoryExists_ByCategoryName()
-        {//Arrange
+        {
+            //Arrange
+            var categoryName = "test";
+            categoryRepository.Exists(categoryName).Returns(true);
             //Act
+
+            var expectedResult = subjectUnderTest.CheckIfExists(categoryName);
             //Assert
+            expectedResult.Should().BeTrue();
 
         }
     }
