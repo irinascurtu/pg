@@ -6,12 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using PGShop.Domain.Entities;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PGShop.Tests.Integration
 {
@@ -19,7 +14,8 @@ namespace PGShop.Tests.Integration
     public class PGShopApiFactory<TProgram> : WebApplicationFactory<TProgram> where
        TProgram : class
     {
-        private const string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=StoreDemoTest";
+       // private const string ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=StoreDemoTest";
+        private const string ConnectionString = @"Server=localhost;Database=Store;User Id=sa;Password=Str0ngPa$$w0rd;MultipleActiveResultSets=true;Encrypt=false;TrustServerCertificate=true";
 
 
         public PGShopApiFactory()
@@ -62,7 +58,7 @@ namespace PGShop.Tests.Integration
 
                 services.AddHttpClient("local", httpClient =>
                 {
-                    httpClient.BaseAddress = new Uri("https://localhost:7068/api/");
+                    httpClient.BaseAddress = new Uri("https://localhost:7238/api/");
 
                 });
 

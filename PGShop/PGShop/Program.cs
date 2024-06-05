@@ -40,7 +40,7 @@ namespace PGShop
             builder.Services.AddSwaggerGen();
 
             //Automapper configuration
-            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+       //     builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             builder.Services.AddAutoMapper(typeof(CategoryProfile));
 
             var app = builder.Build();

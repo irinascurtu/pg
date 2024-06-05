@@ -107,7 +107,10 @@ namespace PGShop.Controllers
             categoryService.AddNewCategory(newCategory);
 
 
-            return CreatedAtAction(nameof(GetCategory), new { id = newCategory.Categoryid }, null);
+            //Category- >CategoryModel
+            var addedEntity = mapper.Map<CategoryModel>(newCategory);
+
+            return CreatedAtAction(nameof(GetCategory), new { id = addedEntity.Categoryid }, addedEntity);
         }
 
         [HttpPut("{id}")]
